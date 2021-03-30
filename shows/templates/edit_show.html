@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>Edit show {{show.id}}</h1>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages%}
+        <p>{{message}}</p>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <form action="/show/{{show.id}}/update" method="POST">
         {% csrf_token %}
         <h2> Title <input type="text" name="title" id="title" value="{{show.title}}"> </h2>

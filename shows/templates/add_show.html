@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>Add a New Show</h1>
+
+    {% if messages %}
+    <ul>    
+        {% for message in messages %}    
+            <li>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <form action="/show/create" method="POST">
         {% csrf_token %}
         <h2> Title <input type="text" name="title" id="title"> </h2>
